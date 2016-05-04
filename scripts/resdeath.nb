@@ -1,0 +1,1084 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     40692,       1075]
+NotebookOptionsPosition[     38484,        999]
+NotebookOutlinePosition[     38839,       1015]
+CellTagsIndexPosition[     38796,       1012]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Resistor Noise Preliminary Lab Report\
+\>", "Subtitle",
+ CellChangeTimes->{{3.57510450019669*^9, 3.575104530477893*^9}, {
+  3.575104570042581*^9, 3.575104576095681*^9}}],
+
+Cell["\<\
+Zachariah Sachs
+CHEM 26701
+16 April 2013\
+\>", "Subsubtitle",
+ CellChangeTimes->{{3.575104546550514*^9, 3.575104565778284*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SetDirectory", "[", 
+  "\"\</Users/Zachariah/Documents/CHEM 26701/ResNoiseLab\>\"", "]"}]], "Input",\
+
+ CellChangeTimes->{{3.57497554547705*^9, 3.574975644942823*^9}, {
+  3.575104462379437*^9, 3.575104465776746*^9}, {3.5756177527785063`*^9, 
+  3.575617767799515*^9}}],
+
+Cell[BoxData["\<\"/Users/Zachariah/Documents/CHEM 26701/ResNoiseLab\"\>"], \
+"Output",
+ CellChangeTimes->{3.5749756455865297`*^9, 3.5749764938475447`*^9, 
+  3.574977047143723*^9, 3.5749822508554983`*^9, 3.574982454603985*^9, 
+  3.574982737592101*^9, 3.5750571226707706`*^9, 3.5756177450176353`*^9, 
+  3.575617780419883*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"vrvr", "=", 
+  RowBox[{
+  "Import", "[", "\"\<V_R_vs_resist.csv\>\"", 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"VOvF", "=", 
+  RowBox[{"Import", "[", "\"\<V_O_vs_freq.csv\>\"", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.574975659413615*^9, 3.574975734184368*^9}, {
+  3.5749759324611692`*^9, 3.574975968874166*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"50", ",", "0.017911507`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"7500", ",", "0.025144834`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"10000", ",", "0.026990191`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"20000", ",", "0.031649946`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"30000", ",", "0.034679683`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"40000", ",", "0.03687153`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"50000", ",", "0.038241069`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.574975681915023*^9, 3.5749757347697773`*^9}, {
+   3.574975952449362*^9, 3.574975969743699*^9}, 3.574976495842134*^9, 
+   3.57497704822484*^9, 3.574982252266715*^9, 3.574982455433794*^9, 
+   3.574982738300597*^9, 3.575057124281385*^9, 3.575617782653261*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0.`", ",", "0.00189`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"25000.`", ",", "2.91`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"50000.`", ",", "2.02`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"75000.`", ",", "1.44`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"100000.`", ",", "1.03`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"125000.`", ",", "0.794`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"150000.`", ",", "0.64`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"175000.`", ",", "0.53`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"200000.`", ",", "0.431`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"225000.`", ",", "0.355`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"250000.`", ",", "0.295`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"275000.`", ",", "0.252`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"300000.`", ",", "0.214`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.574975681915023*^9, 3.5749757347697773`*^9}, {
+   3.574975952449362*^9, 3.574975969743699*^9}, 3.574976495842134*^9, 
+   3.57497704822484*^9, 3.574982252266715*^9, 3.574982455433794*^9, 
+   3.574982738300597*^9, 3.575057124281385*^9, 3.575617782688017*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"VRvR", "=", 
+  RowBox[{"Delete", "[", 
+   RowBox[{"vrvr", ",", "1"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.57497578836017*^9, 3.5749758332414722`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"7500", ",", "0.025144834`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"10000", ",", "0.026990191`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"20000", ",", "0.031649946`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"30000", ",", "0.034679683`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"40000", ",", "0.03687153`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"50000", ",", "0.038241069`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.574975799138454*^9, 3.574975834321692*^9}, 
+   3.5749764995935287`*^9, 3.574977049634841*^9, 3.574982253595395*^9, 
+   3.574982456247984*^9, 3.574982739446439*^9, 3.575057125178747*^9, 
+   3.57561778397337*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["VRvR"], "Input",
+ CellChangeTimes->{{3.574975836694201*^9, 3.574975837440864*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"7500", ",", "0.025144834`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"10000", ",", "0.026990191`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"20000", ",", "0.031649946`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"30000", ",", "0.034679683`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"40000", ",", "0.03687153`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"50000", ",", "0.038241069`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.574975838211659*^9, 3.5749765018182917`*^9, 
+  3.574977050631196*^9, 3.574982254493535*^9, 3.574982456962769*^9, 
+  3.5749827401937428`*^9, 3.575057125925453*^9, 3.575617785551557*^9}]
+}, Open  ]],
+
+Cell["\<\
+1) We are asked particularly to provide a noise signal and power spectrum. I \
+vaguely remember hearing something about saving a screen-shot. If we were \
+supposed to take a screen shot of the ResistorNoise program as we were taking \
+measurements, we didn\[CloseCurlyQuote]t. Should we get the noise signal and \
+power spectrum from another group?\
+\>", "Text",
+ CellChangeTimes->{{3.575104668685831*^9, 3.575104840805307*^9}}],
+
+Cell["\<\
+2) and 3) a) Here is a plot of the gain characteristics of the amplifier as \
+\[OpenCurlyDoubleQuote]Output vs. Frequency\[CloseCurlyDoubleQuote] and a \
+plot of RMS noise as \[OpenCurlyDoubleQuote]Resistor Noise vs. Resistance\
+\[CloseCurlyDoubleQuote].\
+\>", "Text",
+ CellChangeTimes->{{3.575104889888659*^9, 3.575104976370579*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"VRvR", ",", 
+   RowBox[{"PlotLabel", "\[Rule]", "\"\<Resistor Noise vs. Resistance\>\""}], 
+   ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<Resistance(\[CapitalOmega])\>\"", ",", 
+      "\"\<\!\(\*SubscriptBox[\(V\), \(R\)]\)\>\""}], "}"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"VOvF", ",", 
+   RowBox[{"PlotLabel", "\[Rule]", "\"\<Amplifier Output vs. Frequency\>\""}],
+    ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<Frequency(Hz)\>\"", ",", 
+      "\"\<\!\(\*SubscriptBox[\(V\), \(O\)]\)\>\""}], "}"}]}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.574975841905463*^9, 3.5749758623752604`*^9}, {
+  3.5749758936956463`*^9, 3.574975922859271*^9}, {3.574975958987722*^9, 
+  3.57497597657542*^9}, {3.574981650418661*^9, 3.574981818013173*^9}, {
+  3.575104873047058*^9, 3.575104874132351*^9}, {3.575617702407483*^9, 
+  3.57561773451585*^9}, {3.57561781103309*^9, 3.5756178143186827`*^9}, {
+  3.575618089027506*^9, 3.575618089620172*^9}, {3.575618282697651*^9, 
+  3.575618283489212*^9}, {3.575623779983053*^9, 3.575623803866762*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {Hue[0.67, 0.6, 0.6], 
+    PointBox[{{7500., 0.025144834}, {10000., 0.026990191}, {20000., 
+     0.031649946}, {30000., 0.034679683}, {40000., 0.03687153}, {50000., 
+     0.038241069}}]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"Resistance(\[CapitalOmega])\"", TraditionalForm], 
+    FormBox[
+    "\"\\!\\(\\*SubscriptBox[\\(V\\), \\(R\\)]\\)\"", TraditionalForm]},
+  AxesOrigin->{0, 0.0245},
+  PlotLabel->FormBox["\"Resistor Noise vs. Resistance\"", TraditionalForm],
+  PlotRange->{{0., 50000.}, {0.0245, 0.038241069}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{
+    Scaled[0.02], 
+    Scaled[0.02]}]], "Output",
+ CellChangeTimes->{3.574981818804901*^9, 3.57498225533875*^9, 
+  3.574982457741639*^9, 3.5749827410085983`*^9, 3.5750571274362507`*^9, 
+  3.575617739473927*^9, 3.575617789535429*^9, 3.575618090702607*^9, 
+  3.575618284705114*^9, 3.575623805152882*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {Hue[0.67, 0.6, 0.6], 
+    PointBox[{{0., 0.00189}, {25000., 2.91}, {50000., 2.02}, {75000., 1.44}, {
+     100000., 1.03}, {125000., 0.794}, {150000., 0.64}, {175000., 0.53}, {
+     200000., 0.431}, {225000., 0.355}, {250000., 0.295}, {275000., 0.252}, {
+     300000., 0.214}}]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"Frequency(Hz)\"", TraditionalForm], 
+    FormBox[
+    "\"\\!\\(\\*SubscriptBox[\\(V\\), \\(O\\)]\\)\"", TraditionalForm]},
+  AxesOrigin->{0, 0},
+  PlotLabel->FormBox["\"Amplifier Output vs. Frequency\"", TraditionalForm],
+  PlotRange->{{0., 300000.}, {0., 2.91}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{
+    Scaled[0.02], 
+    Scaled[0.02]}]], "Output",
+ CellChangeTimes->{3.574981818804901*^9, 3.57498225533875*^9, 
+  3.574982457741639*^9, 3.5749827410085983`*^9, 3.5750571274362507`*^9, 
+  3.575617739473927*^9, 3.575617789535429*^9, 3.575618090702607*^9, 
+  3.575618284705114*^9, 3.57562380517315*^9}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"VO", ":=", 
+    RowBox[{"Interpolation", "[", 
+     RowBox[{"VOvF", ",", 
+      RowBox[{"InterpolationOrder", "\[Rule]", "0"}]}], "]"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"*", "functionalize", " ", "V_O", " ", "v", " ", "F"}], " ", 
+   "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Vi", ":=", 
+    RowBox[{"5.5899795", "*", 
+     RowBox[{"10", "^", 
+      RowBox[{"(", 
+       RowBox[{"-", "2"}], ")"}]}]}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", "function", " ", "generator", " ", "voltage"}], " ", 
+   "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"cap", ":=", 
+    RowBox[{"60", "*", 
+     RowBox[{"10", "^", 
+      RowBox[{"(", 
+       RowBox[{"-", "12"}], ")"}]}]}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "*", " ", "capacitance", " ", "of", " ", "coax", " ", "in", " ", "F"}], 
+   " ", "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"g", "[", 
+     RowBox[{"freq_", ",", "res_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"VO", "[", "freq", "]"}], "/", "Vi"}], ")"}], "^", "2"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"1", "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"2", "*", "Pi", "*", "freq", "*", "res", "*", "cap"}], ")"}],
+         "^", "2"}]}], ")"}]}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", "integrand", " ", "from", " ", "Equation", " ", 
+    RowBox[{"(", "13", ")"}]}], " ", "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"df", "[", "res_", "]"}], ":=", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"25000", "/", "2"}], ")"}], 
+     RowBox[{"Sum", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"g", "[", 
+         RowBox[{
+          RowBox[{"n", "*", "25000"}], ",", "res"}], "]"}], "+", 
+        RowBox[{"g", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"n", "+", "1"}], ")"}], "*", "25000"}], ",", "res"}], 
+         "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"n", ",", "0", ",", "11"}], "}"}]}], "]"}]}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", "Trapezoid", " ", "rule"}], " ", 
+   "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"dF", "[", "res_", "]"}], ":=", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"25000", "/", "6"}], ")"}], 
+     RowBox[{"Sum", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"g", "[", 
+         RowBox[{
+          RowBox[{"n", "*", "25000"}], ",", "res"}], "]"}], "+", 
+        RowBox[{"4", 
+         RowBox[{"g", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"n", "+", 
+              RowBox[{"(", 
+               RowBox[{"1", "/", "2"}], ")"}]}], ")"}], "*", "25000"}], ",", 
+           "res"}], "]"}]}], "+", 
+        RowBox[{"g", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"n", "+", "1"}], ")"}], "*", "25000"}], ",", "res"}], 
+         "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"n", ",", "0", ",", "11"}], "}"}]}], "]"}]}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", 
+    RowBox[{"Simpson", "'"}], "s", " ", "Rule"}], " ", 
+   "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"VG", ":=", 
+    RowBox[{
+     RowBox[{"vrvr", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], "[", 
+     RowBox[{"[", "2", "]"}], "]"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", "amplifier", " ", "noise"}], " ", 
+   "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"VR", ":=", 
+    RowBox[{"Interpolation", "[", 
+     RowBox[{"VRvR", ",", 
+      RowBox[{"InterpolationOrder", "\[Rule]", "0"}]}], "]"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", "functionalize", " ", "V_R", " ", "v", " ", "R"}], " ", 
+   "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"a", ":=", "0.01"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"T", ":=", "295"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.5749759981841*^9, 3.5749761299902782`*^9}, {
+   3.5749761763166027`*^9, 3.5749761946028223`*^9}, {3.5749762396885643`*^9, 
+   3.574976320865193*^9}, {3.574976513614457*^9, 3.5749766482038937`*^9}, {
+   3.574976797169643*^9, 3.57497693037603*^9}, 3.574977105959763*^9, {
+   3.574977794416751*^9, 3.574977825410611*^9}, {3.5749778758562403`*^9, 
+   3.574977877375676*^9}, {3.574978434999343*^9, 3.574978435846689*^9}, {
+   3.5749785095059547`*^9, 3.574978527880541*^9}, {3.5749785677520647`*^9, 
+   3.5749785840382643`*^9}, {3.5749803811367083`*^9, 3.574980395237049*^9}, {
+   3.574980509465254*^9, 3.574980580044373*^9}, {3.574980610360155*^9, 
+   3.5749806117901983`*^9}, {3.574981366162475*^9, 3.5749814600840683`*^9}, {
+   3.574981519282341*^9, 3.5749815501264153`*^9}, {3.5749822896329393`*^9, 
+   3.5749823285679407`*^9}, {3.575105239857913*^9, 3.5751052639190474`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Gr", "[", "res_", "]"}], ":=", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"a", "*", 
+          RowBox[{"VR", "[", "res", "]"}]}], ")"}], "^", "2"}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"a", "*", "VG"}], ")"}], "^", "2"}]}], ")"}], "/", 
+     RowBox[{"df", "[", "res", "]"}]}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", "aiming", " ", "towards", " ", "a", " ", "fit"}], " ", 
+   "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"gR", "[", "res_", "]"}], ":=", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"a", "*", 
+          RowBox[{"VR", "[", "res", "]"}]}], ")"}], "^", "2"}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"a", "*", "VG"}], ")"}], "^", "2"}]}], ")"}], "/", 
+     RowBox[{"dF", "[", "res", "]"}]}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", "aiming", " ", "towards", " ", "a", " ", "fit"}], " ", 
+   "**)"}]}]}], "Input",
+ CellChangeTimes->{{3.574980639394534*^9, 3.57498071398411*^9}, {
+  3.574982367237397*^9, 3.574982384194579*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"fIt", "=", 
+   RowBox[{"List", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"7500", ",", 
+       RowBox[{"Gr", "[", "7500", "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"10000", ",", 
+       RowBox[{"Gr", "[", "10000", "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"20000", ",", 
+       RowBox[{"Gr", "[", "20000", "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"30000", ",", 
+       RowBox[{"Gr", "[", "30000", "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"40000", ",", 
+       RowBox[{"Gr", "[", "40000", "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"50000", ",", 
+       RowBox[{"Gr", "[", "50000", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fiT", "=", 
+   RowBox[{"List", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"7500", ",", 
+       RowBox[{"gR", "[", "7500", "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"10000", ",", 
+       RowBox[{"gR", "[", "10000", "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"20000", ",", 
+       RowBox[{"gR", "[", "20000", "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"30000", ",", 
+       RowBox[{"gR", "[", "30000", "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"40000", ",", 
+       RowBox[{"gR", "[", "40000", "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"50000", ",", 
+       RowBox[{"gR", "[", "50000", "]"}]}], "}"}]}], "]"}]}], ";"}]}], "Input",\
+
+ CellChangeTimes->{{3.574980733190785*^9, 3.574980780421247*^9}, {
+  3.574982392027438*^9, 3.574982404363385*^9}, {3.574982467519849*^9, 
+  3.574982495973431*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"V2", "[", "res_", "]"}], ":=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"a", "*", 
+        RowBox[{"VR", "[", "res", "]"}]}], ")"}], "^", "2"}], "-", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"a", "*", "VG"}], ")"}], "^", "2"}]}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", "Equation", " ", "14"}], " ", 
+   "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"MSV", "=", 
+   RowBox[{"List", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"7500", ",", 
+       RowBox[{"V2", "[", "7500", "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"10000", ",", 
+       RowBox[{"V2", "[", "10000", "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"20000", ",", 
+       RowBox[{"V2", "[", "20000", "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"30000", ",", 
+       RowBox[{"V2", "[", "30000", "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"40000", ",", 
+       RowBox[{"V2", "[", "40000", "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"50000", ",", 
+       RowBox[{"V2", "[", "50000", "]"}]}], "}"}]}], "]"}]}], ";"}]}], "Input",\
+
+ CellChangeTimes->{{3.574980787237431*^9, 3.574980791609997*^9}, {
+  3.5749818297321787`*^9, 3.574981944124797*^9}, {3.5749820197203007`*^9, 
+  3.5749820537352877`*^9}, {3.574982414840192*^9, 3.574982424530594*^9}, {
+  3.5749826288885717`*^9, 3.574982631034864*^9}, {3.575057109554487*^9, 
+  3.575057111172118*^9}, {3.575057152184746*^9, 3.575057154739182*^9}, {
+  3.575105131077063*^9, 3.5751052158374577`*^9}, {3.575105316813488*^9, 
+  3.575105372880707*^9}, {3.575105460756649*^9, 3.575105461238942*^9}}],
+
+Cell["\<\
+3)b) Here is a plot of MSV. I don\[CloseCurlyQuote]t know how this is useful. \
+We can\[CloseCurlyQuote]t fit this data by itself. We need to use Equations \
+(9) and (14) to get a relation linear in resistance. \
+\>", "Text",
+ CellChangeTimes->{{3.575105581948251*^9, 3.57510567627009*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"MSV", ",", 
+   RowBox[{
+   "PlotLabel", "\[Rule]", "\"\<Mean-Squared Voltage vs. Resistance\>\""}], 
+   ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<Resistance(\[CapitalOmega])\>\"", ",", 
+      "\"\<<\!\(\*SuperscriptBox[\(V\), \(2\)]\)>\>\""}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.575105471298088*^9, 3.575105548243062*^9}, {
+  3.575617833332045*^9, 3.575617836862287*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {Hue[0.67, 0.6, 0.6], 
+    PointBox[{{7500., 4.07648327205432*^-8}, {10000., 4.07648327205432*^-8}, {
+     20000., 6.808969987918668*^-8}, {30000., 8.818583299694401*^-8}, {40000.,
+      1.0386876415298511`*^-7}, {50000., 1.1415572752517122`*^-7}}]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"Resistance(\[CapitalOmega])\"", TraditionalForm], 
+    FormBox[
+    "\"<\\!\\(\\*SuperscriptBox[\\(V\\), \\(2\\)]\\)>\"", TraditionalForm]},
+  AxesOrigin->{0, 0},
+  PlotLabel->FormBox[
+   "\"Mean-Squared Voltage vs. Resistance\"", TraditionalForm],
+  PlotRange->{{0., 50000.}, {0, 1.1415572752517122`*^-7}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{
+    Scaled[0.02], 
+    Scaled[0.02]}]], "Output",
+ CellChangeTimes->{
+  3.575105552020287*^9, {3.5756178424629307`*^9, 3.575617853909419*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"modEl", "=", 
+  RowBox[{"LinearModelFit", "[", 
+   RowBox[{"fIt", ",", "x", ",", "x"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"modeL", "=", 
+  RowBox[{"LinearModelFit", "[", 
+   RowBox[{"fiT", ",", "x", ",", "x"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.574980863200082*^9, 3.5749808759411087`*^9}, {
+  3.5749824319013157`*^9, 3.5749824462043867`*^9}, {3.5749825322636642`*^9, 
+  3.574982534951025*^9}}],
+
+Cell[BoxData[
+ RowBox[{"FittedModel", "[", 
+  PanelBox[
+   TagBox[
+    RowBox[{"8.69176228843142`*^-17", "+", 
+     RowBox[{"1.8185692610437984`*^-20", " ", "x"}]}],
+    Short],
+   FrameMargins->5], "]"}]], "Output",
+ CellChangeTimes->{
+  3.574980878668392*^9, 3.574981472342976*^9, {3.574981525874116*^9, 
+   3.5749815548622932`*^9}, 3.574982059609956*^9, 3.574982262029636*^9, {
+   3.574982439774475*^9, 3.574982446865079*^9}, 3.574982504712076*^9, 
+   3.574982535963873*^9, 3.574982747397937*^9, 3.575617860680849*^9}],
+
+Cell[BoxData[
+ RowBox[{"FittedModel", "[", 
+  PanelBox[
+   TagBox[
+    RowBox[{"1.0715114489016959`*^-16", "+", 
+     RowBox[{"2.0248611968274995`*^-20", " ", "x"}]}],
+    Short],
+   FrameMargins->5], "]"}]], "Output",
+ CellChangeTimes->{
+  3.574980878668392*^9, 3.574981472342976*^9, {3.574981525874116*^9, 
+   3.5749815548622932`*^9}, 3.574982059609956*^9, 3.574982262029636*^9, {
+   3.574982439774475*^9, 3.574982446865079*^9}, 3.574982504712076*^9, 
+   3.574982535963873*^9, 3.574982747397937*^9, 3.57561786068556*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Show", "[", 
+  RowBox[{
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"fIt", ",", 
+     RowBox[{
+     "PlotLabel", "\[Rule]", 
+      "\"\<Mean-Square Potential per Frequency Bandwidth vs. \
+Resistance\>\""}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Resistance(\[CapitalOmega])\>\"", ",", 
+        "\"\<<\!\(\*SuperscriptBox[\(V\), \(2\)]\)>/\[CapitalDelta]f \
+(\!\(\*SuperscriptBox[\(V\), \(2\)]\)\[CenterDot]s)\>\""}], "}"}]}]}], "]"}], 
+   ",", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"modEl", "[", "\"\<BestFit\>\"", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "50000"}], "}"}], ",", 
+     RowBox[{
+     "PlotLabel", "\[Rule]", 
+      "\"\<Mean-Square Potential per Frequency Bandwidth vs. \
+Resistance\>\""}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Resistance(\[CapitalOmega])\>\"", ",", 
+        "\"\<<\!\(\*SuperscriptBox[\(V\), \(2\)]\)>/\[CapitalDelta]f \
+(\!\(\*SuperscriptBox[\(V\), \(2\)]\)\[CenterDot]s)\>\""}], "}"}]}]}], 
+    "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", 
+  RowBox[{
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"fiT", ",", 
+     RowBox[{
+     "PlotLabel", "\[Rule]", 
+      "\"\<Mean-Square Potential per Frequency Bandwidth vs. \
+Resistance\>\""}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Resistance(\[CapitalOmega])\>\"", ",", 
+        "\"\<<\!\(\*SuperscriptBox[\(V\), \(2\)]\)>/\[CapitalDelta]f \
+(\!\(\*SuperscriptBox[\(V\), \(2\)]\)\[CenterDot]s)\>\""}], "}"}]}]}], "]"}], 
+   ",", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"modeL", "[", "\"\<BestFit\>\"", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "50000"}], "}"}], ",", 
+     RowBox[{
+     "PlotLabel", "\[Rule]", 
+      "\"\<Mean-Square Potential per Frequency Bandwidth vs. \
+Resistance\>\""}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Resistance(\[CapitalOmega])\>\"", ",", 
+        "\"\<<\!\(\*SuperscriptBox[\(V\), \(2\)]\)>/\[CapitalDelta]f \
+(\!\(\*SuperscriptBox[\(V\), \(2\)]\)\[CenterDot]s)\>\""}], "}"}]}]}], 
+    "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"*", " ", 
+     RowBox[{"V", "^", "2"}], "*", 
+     RowBox[{"s", "/", "\[CapitalOmega]"}]}], "=", 
+    RowBox[{
+     RowBox[{"W", "*", "s"}], "=", 
+     RowBox[{
+     "J", " ", "so", " ", "the", " ", "slope", " ", "is", " ", "in", " ", 
+      "Joules"}]}]}], " ", "**)"}]}]}], "Input",
+ CellChangeTimes->{{3.5749809080819273`*^9, 3.574980963656877*^9}, {
+  3.574982080526678*^9, 3.574982140843149*^9}, {3.57498217495512*^9, 
+  3.574982240687027*^9}, {3.574982515452488*^9, 3.574982552950472*^9}, {
+  3.5751050810118303`*^9, 3.575105081781331*^9}, {3.575617867836873*^9, 
+  3.575617937023492*^9}, {3.575628105071666*^9, 3.575628174931827*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, 
+    {Hue[0.67, 0.6, 0.6], 
+     PointBox[{{7500., 2.414600690704005*^-16}, {10000., 
+      2.4594108650276613`*^-16}, {20000., 4.485902130438726*^-16}, {30000., 
+      6.380176650231956*^-16}, {40000., 8.23607991408509*^-16}, {50000., 
+      9.881352984011233*^-16}}]}, {}}, {{}, {}, 
+    {Hue[0.67, 0.6, 0.6], LineBox[CompressedData["
+1:eJwV0Hk41HkcwHHpJJ6SSKVDpfBENdnp2fqUj9kem63t0BNKSVlJLCusTs0q
+Ia1Ex6plyFWN0CjX2NAYjGt8HUPDMDPGzE9M4wirg23/eD+v/99mpwOcvLS1
+tLR+/tb/VieZDyoLD9pJdma3eOonQvgi/7hPbBtsCdV9MmGWCIOnmvMK2btQ
+8PLsbzH0REiNnmX/gL0fX5ub6+efTITLSSuiI9juGKuf7KDNSYSzG6ysr7L9
+0U5ypzjF+RGc9Ns8fYEdhk+uBLEkrMcgjt1K/c6OxTPc7b4utGQYi/8qY4+x
+cERyOHdebyoo1Twi+CcLg7983fLwajrcTd8n5B3NxfHdj4IXzc8C59pSb7+G
+fBxtNO8bEj6DQllpaXBWIdIm0ruZXtkgNFqQoNvKxQEPwznBtFyYa8gLXasu
+Q6dPxeOWk3kgcMkzkfRU4EFDRc55ew742lrQA0Z4qNcwe8ovIx8KpYt3lcv4
+2H8k1aB8+BUkBNIanKqrsWr0u4jobQVQu3DSdKNIgB60t3dmJRYC+5qtS2VF
+HZpijXuHvAioLyZOaaIGvPeBX3liTwm8drdp5cmEqMcpvXU0iwtGe46nEEUT
+Zu62Nsr5UApTqrGCX9QEv4Tep7869AZKNQKGi6IZgy+FmhomlcHTsBEbtaYF
+22Kf1huEl0PXtfzutPFWHHpvsOMIrQL6qJyZJQNt+LdN0Xy+qAJM301FBY2J
+MJMhztKPfgsWW6Kv31a3o/2u7zPDN/Hgyme2fZW0A49X3mvlNPNgat9ajzTq
+HYqW+TVyr1fCkTltoz3dYpS6Mq2GLfjwzqFTVdbfiY7eC52mO/mQMXmRVa7p
+QppW0rOamCpwWHy4frVCgmzmGc83m6rBqIB5dJ26G68TNnVbVg3FZZRbpKIH
+B3VsmiIja6Al6WNchK8U2+qzVTutBHBy1ap1SzVSXO6RVVsvFoCoVRnY5SPD
+UXH3gqhrtaBo6AgY/iBDy/Xxq01pddD1yduC7itHjWt4QldHHfzrwWPM75Mj
+3TiA7nqlHti6jvo0n17sTGtPz7ZuAEfKNz5K0YsGS6+GWLc0QJhOcfXmcwrM
+dE82iLzZCO2eze4+agVybUolj+lCWDYSlUe8+9BDaawnEQvhI8+HEzPYh7TC
+8fDLDk1QLFD5h5xV4ld/rZfJiU2QOo/2p0amxLl+80JXDTTB6phMN66XCvFQ
+45PbPxC4ZV+kKJCqkPGcM73gAYGCoZk6XXIVzlhXFsB8SEDOOmA9o0+FFUl1
+PUN/Edg+pQzZ269Cu7uKMvKYwPsSo7nSYRXuvGDMTEgl8JNtkKXOTAq3OVzS
+WvKCgO4GG383cwo3yu1nrKwkQBddjGduoHDAbX9gLJ/A6Qh+QYYlhc/bjsmm
+qgiU9B6f1lhTaCkIqugREDiXEhN3g07h+ryMP1KFBGqX9nNe/EihWZiOtnkn
+gfEa2/ZmRwqlE0bn73cRWHOB+XliL4WswDXy2d0ELomW7GYcpHCl1463SikB
+qwSHNpErhcv3/Rr+VEnAmRE/+fkYhWL+xRETikD4sGSF2QkKH9ndPB3dT0B8
+IOSM7ykKTbayGOcGCcyZLr8V50lhRzabI1YToOXo5b72ovDh+qI1ezUE3E+4
+toi9KXROqYznDn37q5c+Me1DofEyor1xhMB/BpmRtw==
+      "]]}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"Resistance(\[CapitalOmega])\"", TraditionalForm], 
+    FormBox[
+    "\"<\\!\\(\\*SuperscriptBox[\\(V\\), \\(2\\)]\\)>/\[CapitalDelta]f \
+(\\!\\(\\*SuperscriptBox[\\(V\\), \\(2\\)]\\)\[CenterDot]s)\"", 
+     TraditionalForm]},
+  AxesOrigin->{0, 0},
+  PlotLabel->FormBox[
+   "\"Mean-Square Potential per Frequency Bandwidth vs. Resistance\"", 
+    TraditionalForm],
+  PlotRange->{{0., 50000.}, {0, 9.881352984011233*^-16}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{
+    Scaled[0.02], 
+    Scaled[0.02]}]], "Output",
+ CellChangeTimes->{
+  3.574980964606709*^9, 3.574981474320174*^9, 3.574981528081258*^9, 
+   3.5749815618203506`*^9, {3.574982064808917*^9, 3.574982082595525*^9}, {
+   3.574982114065852*^9, 3.574982141736826*^9}, {3.57498224243863*^9, 
+   3.574982263030242*^9}, 3.574982554145186*^9, 3.574982750804405*^9, {
+   3.575617863032035*^9, 3.575617906997538*^9}, 3.575617940510002*^9, 
+   3.5756281408019257`*^9, 3.575628175912147*^9, 3.575628219025692*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, 
+    {Hue[0.67, 0.6, 0.6], 
+     PointBox[{{7500., 2.771129861405284*^-16}, {10000., 
+      2.8209500874883495`*^-16}, {20000., 5.125010053427734*^-16}, {30000., 
+      7.246725633168874*^-16}, {40000., 9.290923460740004*^-16}, {50000., 
+      1.1065893447213041`*^-15}}]}, {}}, {{}, {}, 
+    {Hue[0.67, 0.6, 0.6], LineBox[CompressedData["
+1:eJwVxXsw1AkcAPBCOnRzPSgMSSmr4uSMuu6bvlTk0SqVVR6hvFqtqSjRw1U7
+seLETDdu0iqk8btkOCuPCy3WesT6/VrlvezaX7GkVlo67u6Pz3wsw2J9w7WW
+LFly6D//L8rdPDFWeXgv8fGuZ+DIQ7i5mpM5R9jhbNmtpwc0D2EitLu0knDG
+ffGJuj+u5MOjVB2X+wQT+zSRr5Y68yEp1zyVSwSjgfa+3UU5fIiy3mp7jeCg
+gPfN8AojD07F2C8mENdxbW6ZTuNQHvRm/ERfIjJQ2rBefoL5GGay/pERM3z8
+q3wv7oguhDGVUCL+uwi9FvtCAn2ewr0C707hiefIMNyV8XULAX6ttZExHeUY
+Jun3RyiBSlltbVxRJW6LW/h8LqMUOo1+yNanapAiHXj3zMtg+Rrh5U2qOtxg
+LHpyrrAcxKxS44GhBjyol1P4eXUFsB0ZTrGfhJjH/OGiD18AlcOGzvWyJiRR
+uPH4qheQfd6hw1ckwuJ1Pf5rrlZB60qN2XapGEtdfwsqWlYDxA1HVmNDG2aZ
+cvcr4mqB/mbsmy/twAI3i7mvWi+hItiOEso60Z9l4tSUWgdGBwPzJPIujOMx
+is2T6mFBOSM4o5Lgsez7eUJsgNopsStL3o2PL2xKcdY0wNPrn+xUUyQuv6rF
+smp4Bf03ygfzv1D48vKq6AiuEBR0iXb1+BuUe+yNuQaNYPZuIeXijBQt3er8
+FrWagLEj9dZdVQ+2Gwc7+NU2wdV5wqV5+C2KB7Yf0bvQDAvem0Ly6Xc40H6I
+Zb1TBMd133weGuzFkKx0pumUCN659Snr3veh5lcL2wRBCxRqrvDrp/pRflrG
+dEgUg5vh0fYN8gHcY/YqtMG+FYwEySesVINYsqAOqPnSClV1dMAd+RCmV7q5
+8563AZmrzuSyh7EurCW+4kw7nLKwsDKZGsZlux6kedl0gJQaO98fLcOa0Yws
+wXAHyDvexk5PyjC1iky+W/Qa+uciGU7sERSG7wzZGdoJX0OErgaKEWTcDHfh
+G3QBoe/xvUP0KCZG+Lv5c7rAg2ZnpchHUVvQK0xq7YLrelUi+7NyzDHVrThm
+J4Ge093B0So5shLEooBMCZh+SimVRCrQy8XsaMe4BNTC6LK0CQV6Wxj7qpnd
+UCVWcuKjxvB2VL6YS3TDo+8c0qdkY6gobg47oEvChrQnATXhSjyilR1bHUUC
+z+WFXDCsRHXjpDqnkQTBR229/hElZlQw7R2bSRjh+9guVSiR8aSE/VpEwu6F
+sXiv90oMusMZ0Woj4UO10fLhaSU2eUx2siUkeDpetNHTpvH316riPYMk6Fvb
+cQI20/jz24kQ2SwJTtIrWcnWNJIt3g+SNCSEcZsEhTY0cqr+7DGaJ6F6NHBx
+ypbGx3/EMD0XSDibl5Z524lGg6CJX8p1KGg1eV/2zJ3Gftn4Wu4qCr60OPZ0
+e9B4qdvL12INBRsTkudnvWhcKSTSqwwpSJSu2+96mMYDBWydyXUUbM12eyP1
+p/FZxPi033oK/FyzNPMnaXRnedlOW1Bwc3rA3DKIxhF3IirNkoJen/gIdiiN
+a23YQ3VWFOgu1vMyT9NYatJmenILBQ4lK55XhNPoqb/NT21NQXCQP9kbSaN8
+jncvw4YC3oqC2cVoGm+Mf2hnbKPgX8yGg+I=
+      "]]}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"Resistance(\[CapitalOmega])\"", TraditionalForm], 
+    FormBox[
+    "\"<\\!\\(\\*SuperscriptBox[\\(V\\), \\(2\\)]\\)>/\[CapitalDelta]f \
+(\\!\\(\\*SuperscriptBox[\\(V\\), \\(2\\)]\\)\[CenterDot]s)\"", 
+     TraditionalForm]},
+  AxesOrigin->{0, 0},
+  PlotLabel->FormBox[
+   "\"Mean-Square Potential per Frequency Bandwidth vs. Resistance\"", 
+    TraditionalForm],
+  PlotRange->{{0., 50000.}, {0, 1.1065893447213041`*^-15}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{
+    Scaled[0.02], 
+    Scaled[0.02]}]], "Output",
+ CellChangeTimes->{
+  3.574980964606709*^9, 3.574981474320174*^9, 3.574981528081258*^9, 
+   3.5749815618203506`*^9, {3.574982064808917*^9, 3.574982082595525*^9}, {
+   3.574982114065852*^9, 3.574982141736826*^9}, {3.57498224243863*^9, 
+   3.574982263030242*^9}, 3.574982554145186*^9, 3.574982750804405*^9, {
+   3.575617863032035*^9, 3.575617906997538*^9}, 3.575617940510002*^9, 
+   3.5756281408019257`*^9, 3.575628175912147*^9, 3.575628219083547*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "4) Following my suggestion above, below is the value of Boltzmann\
+\[CloseCurlyQuote]s constant obtained by fitting our data to the theory. I \
+could probably go through the standard error in some of the simple \
+calculations, but I do not know how to propogate it through integrals or \
+linear fits. Are there functions in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " or MATLAB that could help with this?"
+}], "Text",
+ CellChangeTimes->{{3.575105728397044*^9, 3.575105853774007*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"1.8185692610437984`*^-20", "/", 
+   RowBox[{"(", 
+    RowBox[{"4", "*", "T"}], ")"}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", 
+    RowBox[{"Boltzmann", "'"}], "s", " ", "constant", " ", "using", " ", 
+    "the", " ", "Trapezoid", " ", "rule"}], " ", 
+   "**)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"2.0248611968274995`*^-20", "/", 
+  RowBox[{"(", 
+   RowBox[{"4", "*", "T"}], ")"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", 
+    RowBox[{"Boltzmann", "'"}], "s", " ", "constant", " ", "using", " ", 
+    RowBox[{"Simpson", "'"}], "s", " ", "rule"}], " ", "**)"}]}]}], "Input",
+ CellChangeTimes->{{3.574981005350629*^9, 3.574981010876598*^9}, 
+   3.574981488674507*^9, 3.5749815385912724`*^9, {3.5749815758123083`*^9, 
+   3.574981593505196*^9}, {3.574982564357217*^9, 3.57498258774741*^9}, {
+   3.57510586370273*^9, 3.575105902033873*^9}}],
+
+Cell[BoxData["1.5411603907150834`*^-23"], "Output",
+ CellChangeTimes->{
+  3.574981012274839*^9, 3.574981490206448*^9, 3.5749815394194593`*^9, {
+   3.574981576861863*^9, 3.574981594877788*^9}, 3.574982268353958*^9, 
+   3.574982589592596*^9, 3.5749827584379387`*^9, 3.575617953120611*^9}],
+
+Cell[BoxData["1.7159840651080505`*^-23"], "Output",
+ CellChangeTimes->{
+  3.574981012274839*^9, 3.574981490206448*^9, 3.5749815394194593`*^9, {
+   3.574981576861863*^9, 3.574981594877788*^9}, 3.574982268353958*^9, 
+   3.574982589592596*^9, 3.5749827584379387`*^9, 3.575617953123419*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"kB", ":=", 
+   RowBox[{"1.3806488", "*", 
+    RowBox[{"10", "^", 
+     RowBox[{"(", 
+      RowBox[{"-", "23"}], ")"}]}]}]}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", 
+    RowBox[{"Boltzmann", "'"}], "s", " ", "Constant", " ", "in", " ", 
+    RowBox[{"J", "/", "K"}]}], " ", "**)"}]}]], "Input",
+ CellChangeTimes->{{3.5749803899233522`*^9, 3.574980420323728*^9}, {
+  3.574981603782732*^9, 3.574981614286747*^9}, {3.5751059272206783`*^9, 
+  3.575105928166482*^9}, {3.575629088987811*^9, 3.5756290903790417`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"(", "1.5411603907150834`*^-23", ")"}], "-", "kB"}], ")"}], "/", 
+   "kB"}], "*", "100"}]], "Input",
+ CellChangeTimes->{{3.575629112858127*^9, 3.575629136863471*^9}}],
+
+Cell[BoxData["11.678289182252415`"], "Output",
+ CellChangeTimes->{{3.57562912921708*^9, 3.575629138549418*^9}}]
+}, Open  ]],
+
+Cell["\<\
+5) The average value from the calculations above for Boltzmann\
+\[CloseCurlyQuote]s constant is above the accepted value. In terms of data, \
+this might be due to the number of frequencies at which we measured the \
+noise. We could have gotten a more precise gain characteristic and value of \
+df if we had taken more measurements. 
+During initial measurements of resistor noise, we were getting an unwanted \
+periodic signal, perhaps from some electrical signal in the lab which we were \
+not able to pin down. This extra \[OpenCurlyDoubleQuote]noise\
+\[CloseCurlyDoubleQuote] would tend to give a higher value of RMS voltage \
+than expected. Perhaps this same noise was occuring when we took the gain \
+characteristic of the amplifier, and so we got high measurements for V_O. \
+This would give an inflated value of \[CapitalDelta]f, and I think that based \
+on the shape of the gain characteristic, would give a larger slope than \
+expected in the fit of mean-square voltage over \[CapitalDelta]f vs. \
+resistancefrom which we calculated Boltzmann\[CloseCurlyQuote]s constant.\
+\>", "Text",
+ CellChangeTimes->{{3.575105937011156*^9, 3.575105986804121*^9}, {
+  3.575106041942842*^9, 3.5751061231542273`*^9}, {3.575106185205509*^9, 
+  3.575106347596336*^9}, {3.57510638745536*^9, 3.575106463652906*^9}}],
+
+Cell["\<\
+6) Do we want to minimize the deviation of the calculated value of Boltzmann\
+\[CloseCurlyQuote]s constant by eliminating error from our measurements, or \
+do we want to generally minimize the uncertainty caused by resistor noise in \
+any measurement involving electronics? If the former, as I said, we could \
+take more measurements to smooth out the statistics. If the latter, we can\
+\[CloseCurlyQuote]t. We can try to minimize the resistance in various ways, \
+but for a fixed resistance, there is always a minimum abount of noise \
+fundamental to circuits. \
+\>", "Text",
+ CellChangeTimes->{{3.575106480934017*^9, 3.575106669218836*^9}}],
+
+Cell["\<\
+7) The Fourier transform essentially takes any time-dependent signal, looks \
+at its \[OpenCurlyDoubleQuote]Fourier series\[CloseCurlyDoubleQuote], an \
+infinite series of periodic functions, and spits out for any particular \
+frequency the magnitude of that frequency\[CloseCurlyQuote]s contribution to \
+the Fourier series. That is, the fourier transform gives the \
+\[OpenCurlyDoubleQuote]frequency spectrum\[CloseCurlyDoubleQuote] of the \
+signal. The shape of noise (intensity) signals is messy; the Fourier \
+transform, the power spectrum, has a shape more condusive to evaluation.\
+\>", "Text",
+ CellChangeTimes->{{3.5751067986996803`*^9, 3.575106959388616*^9}, {
+  3.575106989874559*^9, 3.575107049794425*^9}}],
+
+Cell["\<\
+8) The ensemble in this case is an electrical circuit. The microscopic \
+elements, electrons, can occuy microstates bound to various nuclei in \
+conducting material. We get to measure macroscopic properties of this \
+ensemble, like current or potential.\
+\>", "Text",
+ CellChangeTimes->{{3.575107054249412*^9, 3.5751071964770517`*^9}, 
+   3.575107227298296*^9}],
+
+Cell["\<\
+9) This lab give another stat-mech way of finding \
+Boltzmann\[CloseCurlyQuote]s constant, which is obviously fundamental to \
+stat-mech and thermodynamics, and thus chemistry. Noise in circuit elements \
+probably has logical parallels in measurements of gases; for example, \
+deviation from ideal-gas behavior could be thought of as \
+\[OpenCurlyDoubleQuote]noise\[CloseCurlyDoubleQuote] due to particle size or \
+inter-particle forces.\
+\>", "Text",
+ CellChangeTimes->{{3.5751072012931023`*^9, 3.575107374383061*^9}}]
+}, Open  ]]
+},
+WindowSize->{740, 656},
+WindowMargins->{{12, Automatic}, {Automatic, 24}},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
+2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 179, 4, 46, "Subtitle"],
+Cell[761, 28, 137, 5, 60, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[923, 37, 291, 6, 27, "Input"],
+Cell[1217, 45, 323, 5, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1577, 55, 343, 8, 43, "Input"],
+Cell[1923, 65, 845, 20, 43, "Output"],
+Cell[2771, 87, 1243, 32, 58, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4051, 124, 179, 4, 27, "Input"],
+Cell[4233, 130, 728, 18, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4998, 153, 96, 1, 27, "Input"],
+Cell[5097, 156, 701, 17, 43, "Output"]
+}, Open  ]],
+Cell[5813, 176, 438, 7, 56, "Text"],
+Cell[6254, 185, 344, 6, 41, "Text"],
+Cell[CellGroupData[{
+Cell[6623, 195, 1201, 27, 73, "Input"],
+Cell[7827, 224, 976, 22, 227, "Output"],
+Cell[8806, 248, 1039, 23, 231, "Output"]
+}, Open  ]],
+Cell[9860, 274, 4942, 142, 223, "Input"],
+Cell[14805, 418, 1225, 38, 58, "Input"],
+Cell[16033, 458, 1640, 49, 73, "Input"],
+Cell[17676, 509, 1675, 45, 58, "Input"],
+Cell[19354, 556, 300, 5, 41, "Text"],
+Cell[CellGroupData[{
+Cell[19679, 565, 483, 13, 53, "Input"],
+Cell[20165, 580, 896, 21, 219, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21098, 606, 435, 9, 43, "Input"],
+Cell[21536, 617, 521, 12, 44, "Output"],
+Cell[22060, 631, 522, 12, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22619, 648, 2956, 78, 293, "Input"],
+Cell[25578, 728, 3153, 60, 217, "Output"],
+Cell[28734, 790, 3150, 60, 217, "Output"]
+}, Open  ]],
+Cell[31899, 853, 512, 10, 56, "Text"],
+Cell[CellGroupData[{
+Cell[32436, 867, 882, 20, 58, "Input"],
+Cell[33321, 889, 286, 4, 30, "Output"],
+Cell[33610, 895, 286, 4, 30, "Output"]
+}, Open  ]],
+Cell[33911, 902, 553, 13, 27, "Input"],
+Cell[CellGroupData[{
+Cell[34489, 919, 244, 7, 27, "Input"],
+Cell[34736, 928, 111, 1, 27, "Output"]
+}, Open  ]],
+Cell[34862, 932, 1314, 19, 131, "Text"],
+Cell[36179, 953, 652, 10, 86, "Text"],
+Cell[36834, 965, 728, 11, 71, "Text"],
+Cell[37565, 978, 371, 7, 41, "Text"],
+Cell[37939, 987, 529, 9, 56, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
